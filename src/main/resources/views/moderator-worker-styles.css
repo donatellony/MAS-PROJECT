@@ -8,6 +8,10 @@
     -fx-background-radius: 30;
 }
 
+.changeMenuButton:hover{
+    -fx-opacity: 0.6;
+}
+
 .activeChangeMenuButton{
     -fx-background-color: #a3a3a3;
 }

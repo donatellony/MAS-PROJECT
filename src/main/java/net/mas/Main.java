@@ -6,11 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.mas.controllers.WorkerController;
-import net.mas.utils.HibernateUtil;
-
-import java.util.Objects;
+import net.mas.entities.Worker;
 
 public class Main extends Application {
+    private Stage stage;
+
     public static void main(String[] args) {
 //        HibernateUtil.addSeedData();
         launch(args);
@@ -26,5 +26,9 @@ public class Main extends Application {
 
         WorkerController controller = loader.getController();
         controller.onLoad();
+    }
+
+    public static void setWorkerTransactionsScene(Worker worker) {
+
     }
 }
