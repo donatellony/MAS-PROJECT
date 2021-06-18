@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/MAS-PROJECT</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">admin</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
+
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+<!--        <property name="hibernate.hbm2ddl.auto">create</property>-->
+
+        <mapping class="net.mas.entities.Client"/>
+        <mapping class="net.mas.entities.Animal"/>
+        <mapping class="net.mas.entities.Worker"/>
+        <mapping class="net.mas.entities.Verifier"/>
+        <mapping class="net.mas.entities.Moderator"/>
+        <mapping class="net.mas.entities.Picture"/>
+        <mapping class="net.mas.entities.AnimalForSaleForm"/>
+        <mapping class="net.mas.entities.AnimalForSaleFormPK"/>
+        <mapping class="net.mas.entities.Document"/>
+        <mapping class="net.mas.entities.DocumentAfterVerification"/>
+        <mapping class="net.mas.entities.DocumentBeforeVerification"/>
+        <mapping class="net.mas.entities.PictureAfterVerification"/>
+        <mapping class="net.mas.entities.PictureBeforeVerification"/>
+        <mapping class="net.mas.entities.Verification"/>
+        <mapping class="net.mas.entities.VerificationOfDocument"/>
+        <mapping class="net.mas.entities.VerificationOfPicture"/>
+
+    </session-factory>
+</hibernate-configuration>

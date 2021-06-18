@@ -1,0 +1,13 @@
+.changeMenuBox{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.changeMenuButton{
+    -fx-background-color: #e6e6e6;
+    -fx-background-radius: 30;
+}
+
+.activeChangeMenuButton{
+    -fx-background-color: #a3a3a3;
+}

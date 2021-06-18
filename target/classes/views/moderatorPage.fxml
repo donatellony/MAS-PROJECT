@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.mas.controllers.WorkerController">
+   <children>
+      <BorderPane layoutX="531.0" layoutY="260.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TableView fx:id="mainDataTable" prefHeight="559.0" prefWidth="829.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="32.0" text="ID" />
+                <TableColumn prefWidth="118.0" text="Name" />
+                  <TableColumn prefWidth="118.0" text="Surname" />
+                  <TableColumn prefWidth="119.0" text="Role" />
+                  <TableColumn prefWidth="627.0" text="Actions" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="100.0" left="150.0" right="150.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+         <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="114.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/img/piesikot_logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="182.0" text="Piesikot" textAlignment="CENTER">
+                           <font>
+                              <Font name="Cambria Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="131.0" prefWidth="379.0" styleClass="changeMenuBox" stylesheets="@moderator-worker-styles.css">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@moderator-worker-styles.css" text="Workers">
+                           <styleClass>
+                              <String fx:value="changeMenuButton" />
+                              <String fx:value="activeChangeMenuButton" />
+                           </styleClass>
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Clients">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Verifications">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
