@@ -31,6 +31,11 @@ public abstract class Worker {
     @Transient
     public abstract float getSalary();
 
+    @Transient
+    public String getRole(){
+        return this.getClass().getSimpleName();
+    }
+
     public void setWorkerId(long workerId) {
         this.workerId = workerId;
     }

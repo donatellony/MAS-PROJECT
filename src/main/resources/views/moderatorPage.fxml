@@ -15,11 +15,11 @@
          <center>
             <TableView fx:id="mainDataTable" prefHeight="559.0" prefWidth="829.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="32.0" text="ID" />
-                <TableColumn prefWidth="118.0" text="Name" />
-                  <TableColumn prefWidth="118.0" text="Surname" />
-                  <TableColumn prefWidth="119.0" text="Role" />
-                  <TableColumn prefWidth="627.0" text="Actions" />
+                <TableColumn fx:id="idCol" prefWidth="32.0" text="ID" />
+                <TableColumn fx:id="nameCol" prefWidth="118.0" text="Name" />
+                  <TableColumn fx:id="surnameCol" prefWidth="118.0" text="Surname" />
+                  <TableColumn fx:id="roleCol" prefWidth="119.0" text="Role" />
+                  <TableColumn fx:id="actionsCol" prefWidth="627.0" text="Actions" />
               </columns>
                <BorderPane.margin>
                   <Insets bottom="100.0" left="150.0" right="150.0" />
