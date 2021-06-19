@@ -12,6 +12,7 @@ public abstract class Verification {
     private LocalDate startDate;
     private LocalDate endDate;
     private VerificationState state;
+    private Verifier verifier;
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -46,5 +47,15 @@ public abstract class Verification {
 
     public void setState(VerificationState state) {
         this.state = state;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "workerId", nullable = false)
+    public Verifier getVerifier() {
+        return verifier;
+    }
+
+    public void setVerifier(Verifier verifier) {
+        this.verifier = verifier;
     }
 }

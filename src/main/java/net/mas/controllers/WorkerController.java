@@ -6,7 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import net.mas.components.ButtonCellFactory;
+import net.mas.components.ButtonType;
+import net.mas.components.WorkerButtonCellFactory;
 import net.mas.entities.Worker;
 import net.mas.repositories.WorkerRepository;
 import net.mas.services.WorkerService;
@@ -33,8 +34,7 @@ public class WorkerController {
         surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
         roleCol.setCellValueFactory(new PropertyValueFactory<>("role"));
 
-        actionsCol.setCellValueFactory (new PropertyValueFactory<>("DUMMY"));
-        actionsCol.setCellFactory (new ButtonCellFactory<Worker>("button", e->onTableButtonClick(e)));
+        actionsCol.setCellFactory(new WorkerButtonCellFactory(ButtonType.ROLE_BASED));
 
 //        System.out.println(idCol.getCellData(0));
 //        workers.forEach(e -> System.out.println(e.toString()));
@@ -58,6 +58,6 @@ public class WorkerController {
     private TableColumn<Worker, String> roleCol;
 
     @FXML
-    private TableColumn<?, ?> actionsCol;
+    private TableColumn actionsCol;
 
 }

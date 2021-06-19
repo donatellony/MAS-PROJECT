@@ -1,12 +1,13 @@
 package net.mas.entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Verifier extends Worker {
     private int verificationsNumber;
+    private Set<Verification> verifications = new HashSet<>();
 
     public Verifier() {
     }
@@ -36,5 +37,16 @@ public class Verifier extends Worker {
 
     public void setVerificationsNumber(int verificationsNumber) {
         this.verificationsNumber = verificationsNumber;
+    }
+
+    @OneToMany(mappedBy = "verifier",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    public Set<Verification> getVerifications() {
+        return verifications;
+    }
+
+    public void setVerifications(Set<Verification> animals) {
+        this.verifications = animals;
     }
 }
