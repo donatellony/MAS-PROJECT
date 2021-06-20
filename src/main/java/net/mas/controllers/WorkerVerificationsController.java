@@ -2,6 +2,10 @@ package net.mas.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,15 +20,22 @@ import net.mas.repositories.VerificationRepository;
 import net.mas.repositories.WorkerRepository;
 import net.mas.services.IVerificationService;
 import net.mas.services.IWorkerService;
+import net.mas.services.VerificationLoadingService;
+import net.mas.services.VerificationLoadingServiceResults;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public class WorkerVerificationsController {
 
     private IVerificationService verificationService;
+    private VerificationLoadingService loadingService;
 
     public WorkerVerificationsController() {
         this.verificationService = new VerificationRepository();
+        this.loadingService = VerificationLoadingService.getInstance();
     }
 
     private ObservableList<Verifier> verifiers = FXCollections.observableArrayList();
@@ -37,18 +48,19 @@ public class WorkerVerificationsController {
     }
 
     public void onLoad() {
-        List<Verifier> verifierList = verificationService.getVerifiersWithVerification();
-        List<Verification> verificationList = verificationService.getVerifications();
-        List<Client> clientList = verificationService.getClientsWithVerification();
+        final List<Verification> verificationList = new ArrayList<>();
+        final List<Verifier> verifierList = new ArrayList<>();
+        final List<Client> clientList = new ArrayList<>();
 
-        System.out.println(clientList);
+        Map<VerificationLoadingServiceResults, List<?>> results = loadingService.getValue();
+
+        verificationList.addAll((List<Verification>) results.get(VerificationLoadingServiceResults.VERIFICATIONS));
+        verifierList.addAll((List<Verifier>) results.get(VerificationLoadingServiceResults.VERIFIERS));
+        clientList.addAll((List<Client>) results.get(VerificationLoadingServiceResults.CLIENTS));
 
         verifiers.addAll(verifierList);
         verifications.addAll(verificationList);
         clients.addAll(clientList);
-
-//        System.out.println(workers);
-//        System.out.println("CHECHKOX ADDING ITEMS");
 
         idCol.setCellValueFactory(new PropertyValueFactory<>("verificationId"));
         workerCol.setCellValueFactory(new PropertyValueFactory<>("verifier"));
@@ -75,22 +87,6 @@ public class WorkerVerificationsController {
             }
         });
 
-//        clientCmbBox.setCellFactory(new Callback<ListView<Client>, ListCell<Client>>() {
-//            @Override
-//            public ListCell<Client> call(ListView<Client> param) {
-//                return new ListCell<Client>(){
-//                    @Override
-//                    protected void updateItem(Client item, boolean empty) {
-//                        super.updateItem(item, empty);
-//                        if(item == null || empty){
-//                            setGraphic(null);
-//                        } else {
-//                            setText(item.getName() + " " + item.getSurname() + "(" + item.getClientId() + ")");
-//                        }
-//                    }
-//                };
-//            }
-//        });
         clientCmbBox.setCellFactory(new Callback<ListView<Client>, ListCell<Client>>() {
             @Override
             public ListCell<Client> call(ListView<Client> param) {
@@ -107,11 +103,6 @@ public class WorkerVerificationsController {
                 };
             }
         });
-
-//        actionsCol.setCellFactory(new WorkerButtonCellFactory(ButtonType.ROLE_BASED));
-
-//        System.out.println(idCol.getCellData(0));
-//        workers.forEach(e -> System.out.println(e.toString()));
 
         mainDataTable.setItems(verifications);
         workerCmbBox.setItems(verifiers);

@@ -6,14 +6,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.mas.entities.Worker;
+import net.mas.services.VerificationLoadingService;
 import net.mas.utils.HibernateUtil;
 
 public class Main extends Application {
     private Stage stage;
+    private VerificationLoadingService verificationLoadingService = VerificationLoadingService.getInstance();
 
     private static Main instance;
 
-    public Main(){
+    public Main() {
         instance = this;
     }
 
@@ -36,19 +38,36 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public void setVerificationsScene(Worker worker) {
-        setVerificationsScene();
-    }
-
-    public void setVerificationsScene(){
+    public void setLoadingScene() {
         try {
-            replaceScene("workerVerificationsPage.fxml", "Piesikot Moderator Verifications Page");
+            replaceScene("loading.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void setWorkersScene(){
+    public void setVerificationsScene(Worker worker) {
+        setVerificationsScene();
+    }
+
+    public void setVerificationsScene() {
+        try {
+            verificationLoadingService.setOnRunning(event -> setLoadingScene());
+            verificationLoadingService.setOnSucceeded(event -> {
+                        try {
+                            replaceScene("workerVerificationsPage.fxml", "Piesikot Moderator Verifications Page");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+            );
+            verificationLoadingService.restart();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setWorkersScene() {
         try {
             replaceScene("moderatorPage.fxml", "Piesikot Moderator Workers Page");
         } catch (Exception e) {
