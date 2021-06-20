@@ -4,6 +4,6 @@ import net.mas.entities.Worker;
 
 import java.util.List;
 
-public interface WorkerService {
+public interface IWorkerService {
     List<Worker> getWorkers();
 }

@@ -49,7 +49,11 @@
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="131.0" prefWidth="379.0" styleClass="changeMenuBox" stylesheets="@moderator-worker-styles.css">
                             <children>
-                                <Button fx:id="toWorkersBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Workers">
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@moderator-worker-styles.css" text="Workers">
+                                    <styleClass>
+                                        <String fx:value="changeMenuButton" />
+                                        <String fx:value="activeChangeMenuButton" />
+                                    </styleClass>
                                     <font>
                                         <Font name="Cambria" size="16.0" />
                                     </font>
@@ -59,14 +63,10 @@
                                         <Font name="Cambria" size="16.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="toVerificationsBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@moderator-worker-styles.css" text="Verifications">
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Verifications">
                                     <font>
                                         <Font name="Cambria" size="16.0" />
                                     </font>
-                           <styleClass>
-                              <String fx:value="changeMenuButton" />
-                              <String fx:value="activeChangeMenuButton" />
-                           </styleClass>
                                 </Button>
                             </children>
                             <opaqueInsets>
@@ -89,7 +89,7 @@
                               <Font name="Cambria" size="13.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="workerCmbBox" prefWidth="150.0" />
+                        <ChoiceBox fx:id="workerChBox" prefWidth="150.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="43.0" prefWidth="236.0">
@@ -99,7 +99,7 @@
                               <Font name="Cambria" size="13.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="clientCmbBox" prefWidth="150.0" />
+                        <ChoiceBox fx:id="clientChBox" prefWidth="150.0" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -114,7 +114,7 @@
                                     <Font name="Cambria" size="13.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="typeCmbBox" prefWidth="150.0" />
+                              <ChoiceBox fx:id="typeChBox" prefWidth="150.0" />
                            </children>
                         </VBox>
                      </children>

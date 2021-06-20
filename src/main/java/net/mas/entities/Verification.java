@@ -12,7 +12,18 @@ public abstract class Verification {
     private LocalDate startDate;
     private LocalDate endDate;
     private VerificationState state;
+
     private Verifier verifier;
+
+    public Verification(){
+
+    }
+
+    public Verification(LocalDate startDate, Verifier verifier){
+        setState(VerificationState.NONE);
+        setStartDate(startDate);
+        setVerifier(verifier);
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)

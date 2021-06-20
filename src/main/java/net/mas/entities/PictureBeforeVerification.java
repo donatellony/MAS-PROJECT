@@ -7,6 +7,17 @@ import java.time.LocalDate;
 public class PictureBeforeVerification extends Picture{
     private LocalDate addedToQueueDate;
 
+    public PictureBeforeVerification(){}
+
+    public PictureBeforeVerification(byte[] photo, Client owner){
+        super(photo, owner);
+    }
+
+    public PictureBeforeVerification(byte[] photo, Client owner, VerificationOfPicture verification){
+        super(photo, owner, verification);
+        setAddedToQueueDate(LocalDate.now());
+    }
+
     @Basic
     public LocalDate getAddedToQueueDate() {
         return addedToQueueDate;

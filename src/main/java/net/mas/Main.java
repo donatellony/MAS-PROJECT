@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import net.mas.controllers.WorkerController;
 import net.mas.entities.Worker;
 import net.mas.utils.HibernateUtil;
 
@@ -32,12 +31,9 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/moderatorPage.fxml"));
         Parent root = loader.load();
         stage = primaryStage;
-        primaryStage.setTitle("Piesikot Moderator Page");
+        primaryStage.setTitle("Piesikot Moderator Workers Page");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
-        WorkerController controller = loader.getController();
-        controller.onLoad();
     }
 
     public void setVerificationsScene(Worker worker) {
@@ -46,8 +42,15 @@ public class Main extends Application {
 
     public void setVerificationsScene(){
         try {
-            replaceScene("workerVerificationsPage.fxml");
-            stage.setTitle("Piesikot Moderator Verifications Page");
+            replaceScene("workerVerificationsPage.fxml", "Piesikot Moderator Verifications Page");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setWorkersScene(){
+        try {
+            replaceScene("moderatorPage.fxml", "Piesikot Moderator Workers Page");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,6 +60,11 @@ public class Main extends Application {
         Parent page = FXMLLoader.load(getClass().getResource("/views/" + fileName));
         stage.getScene().setRoot(page);
         return page;
+    }
+
+    private Parent replaceScene(String fileName, String title) throws Exception {
+        stage.setTitle(title);
+        return replaceScene(fileName);
     }
 }
 

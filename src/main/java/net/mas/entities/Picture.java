@@ -11,6 +11,18 @@ public abstract class Picture {
 
     private VerificationOfPicture verification;
 
+    public Picture(){}
+
+    public Picture(byte[] photo, Client owner){
+        setPhoto(photo);
+        setOwner(owner);
+    }
+
+    public Picture(byte[] photo, Client owner, VerificationOfPicture verification){
+        this(photo, owner);
+        setVerification(verification);
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     public long getPictureId() {

@@ -3,26 +3,33 @@ package net.mas.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.mas.Main;
 import net.mas.components.ButtonType;
 import net.mas.components.WorkerButtonCellFactory;
 import net.mas.entities.Worker;
 import net.mas.repositories.WorkerRepository;
-import net.mas.services.WorkerService;
+import net.mas.services.IWorkerService;
 
 import java.util.List;
 
 public class WorkerController {
 
-    private WorkerService workerService;
+    private IWorkerService workerService;
 
     public WorkerController() {
         this.workerService = new WorkerRepository();
     }
 
     private ObservableList<Worker> workers = FXCollections.observableArrayList();
+
+    @FXML
+    public void initialize(){
+        onLoad();
+    }
 
     public void onLoad() {
         List<Worker> workerList = workerService.getWorkers();
@@ -40,6 +47,8 @@ public class WorkerController {
 //        workers.forEach(e -> System.out.println(e.toString()));
 
         mainDataTable.setItems(workers);
+
+        toVerificationsBtn.setOnAction(event -> Main.getInstance().setVerificationsScene());
     }
 
     @FXML
@@ -59,5 +68,11 @@ public class WorkerController {
 
     @FXML
     private TableColumn actionsCol;
+
+    @FXML
+    private Button toWorkersBtn;
+
+    @FXML
+    private Button toVerificationsBtn;
 
 }

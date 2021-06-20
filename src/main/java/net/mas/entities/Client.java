@@ -98,6 +98,7 @@ public class Client {
         return getName() + " " + getSurname() + ", from " + getTown();
     }
 
+    @Basic
     public String getAboutMe() {
         return aboutMe;
     }

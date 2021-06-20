@@ -17,10 +17,13 @@
                 <TableView fx:id="mainDataTable" prefHeight="559.0" prefWidth="829.0" BorderPane.alignment="CENTER">
                     <columns>
                         <TableColumn fx:id="idCol" prefWidth="32.0" text="ID" />
-                        <TableColumn fx:id="nameCol" prefWidth="118.0" text="Name" />
-                        <TableColumn fx:id="surnameCol" prefWidth="118.0" text="Surname" />
-                        <TableColumn fx:id="roleCol" prefWidth="119.0" text="Role" />
-                        <TableColumn fx:id="actionsCol" prefWidth="627.0" text="Actions" />
+                        <TableColumn fx:id="workerCol" prefWidth="120.0" text="Worker" />
+                        <TableColumn fx:id="clientCol" prefWidth="120.0" text="Client" />
+                        <TableColumn fx:id="typeCol" prefWidth="120.0" text="Type" />
+                  <TableColumn fx:id="startDateCol" prefWidth="120.0" text="Start Date" />
+                  <TableColumn fx:id="endDateCol" prefWidth="120.0" text="End Date" />
+                  <TableColumn fx:id="resultCol" prefWidth="120.0" text="Result" />
+                        <TableColumn fx:id="actionsCol" prefWidth="176.0" text="Actions" />
                     </columns>
                     <BorderPane.margin>
                         <Insets bottom="100.0" right="150.0" />
@@ -46,11 +49,7 @@
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="131.0" prefWidth="379.0" styleClass="changeMenuBox" stylesheets="@moderator-worker-styles.css">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@moderator-worker-styles.css" text="Workers">
-                                    <styleClass>
-                                        <String fx:value="changeMenuButton" />
-                                        <String fx:value="activeChangeMenuButton" />
-                                    </styleClass>
+                                <Button fx:id="toWorkersBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Workers">
                                     <font>
                                         <Font name="Cambria" size="16.0" />
                                     </font>
@@ -60,10 +59,14 @@
                                         <Font name="Cambria" size="16.0" />
                                     </font>
                                 </Button>
-                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Verifications">
+                                <Button fx:id="toVerificationsBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@moderator-worker-styles.css" text="Verifications">
                                     <font>
                                         <Font name="Cambria" size="16.0" />
                                     </font>
+                           <styleClass>
+                              <String fx:value="changeMenuButton" />
+                              <String fx:value="activeChangeMenuButton" />
+                           </styleClass>
                                 </Button>
                             </children>
                             <opaqueInsets>
@@ -86,7 +89,7 @@
                               <Font name="Cambria" size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ComboBox fx:id="workerCmbBox" prefWidth="150.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="43.0" prefWidth="236.0">
@@ -96,7 +99,7 @@
                               <Font name="Cambria" size="13.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ComboBox fx:id="clientCmbBox" prefWidth="150.0" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -111,7 +114,7 @@
                                     <Font name="Cambria" size="13.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox prefWidth="150.0" />
+                              <ComboBox fx:id="typeCmbBox" prefWidth="150.0" />
                            </children>
                         </VBox>
                      </children>

@@ -45,7 +45,7 @@
                   </VBox>
                   <HBox alignment="CENTER" prefHeight="131.0" prefWidth="379.0" styleClass="changeMenuBox" stylesheets="@moderator-worker-styles.css">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@moderator-worker-styles.css" text="Workers">
+                        <Button fx:id="toWorkersBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" stylesheets="@moderator-worker-styles.css" text="Workers">
                            <styleClass>
                               <String fx:value="changeMenuButton" />
                               <String fx:value="activeChangeMenuButton" />
@@ -59,7 +59,7 @@
                               <Font name="Cambria" size="16.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Verifications">
+                        <Button fx:id="toVerificationsBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Verifications">
                            <font>
                               <Font name="Cambria" size="16.0" />
                            </font>

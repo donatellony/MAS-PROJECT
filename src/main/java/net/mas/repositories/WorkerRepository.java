@@ -1,9 +1,7 @@
 package net.mas.repositories;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import net.mas.entities.Worker;
-import net.mas.services.WorkerService;
+import net.mas.services.IWorkerService;
 import net.mas.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,7 +9,7 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class WorkerRepository implements WorkerService {
+public class WorkerRepository implements IWorkerService {
     private static SessionFactory sessionFactory;
     private Session session;
     private Transaction transaction;
