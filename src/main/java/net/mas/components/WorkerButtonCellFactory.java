@@ -7,8 +7,6 @@ import net.mas.Main;
 import net.mas.entities.Verifier;
 import net.mas.entities.Worker;
 
-import java.util.function.Consumer;
-
 public class WorkerButtonCellFactory extends ButtonCellFactory<Worker> {
     private ButtonType btnType;
 

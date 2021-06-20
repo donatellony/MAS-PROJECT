@@ -22,7 +22,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String name, String surname, String town, String aboutMe){
+    public Client(String name, String surname, String town, String aboutMe) {
         this(name, surname, town);
         setAboutMe(aboutMe);
     }
@@ -95,7 +95,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + ", from " + getTown();
+        return getName() + " " + getSurname() + " (" + getClientId() + ")";
     }
 
     @Basic

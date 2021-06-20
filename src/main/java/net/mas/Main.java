@@ -7,11 +7,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.mas.entities.Worker;
 import net.mas.services.VerificationLoadingService;
+import net.mas.services.WorkerLoadingService;
 import net.mas.utils.HibernateUtil;
 
 public class Main extends Application {
     private Stage stage;
+
     private VerificationLoadingService verificationLoadingService = VerificationLoadingService.getInstance();
+    private WorkerLoadingService workerLoadingService = WorkerLoadingService.getInstance();
 
     private static Main instance;
 
@@ -24,7 +27,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-//        HibernateUtil.addSeedData();
+        HibernateUtil.addSeedData();
         launch(args);
     }
 
@@ -51,28 +54,11 @@ public class Main extends Application {
     }
 
     public void setVerificationsScene() {
-        try {
-            verificationLoadingService.setOnRunning(event -> setLoadingScene());
-            verificationLoadingService.setOnSucceeded(event -> {
-                        try {
-                            replaceScene("workerVerificationsPage.fxml", "Piesikot Moderator Verifications Page");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-            );
-            verificationLoadingService.restart();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        verificationLoadingService.restart();
     }
 
     public void setWorkersScene() {
-        try {
-            replaceScene("moderatorPage.fxml", "Piesikot Moderator Workers Page");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        workerLoadingService.restart();
     }
 
     private Parent replaceScene(String fileName) throws Exception {
@@ -81,7 +67,7 @@ public class Main extends Application {
         return page;
     }
 
-    private Parent replaceScene(String fileName, String title) throws Exception {
+    public Parent replaceScene(String fileName, String title) throws Exception {
         stage.setTitle(title);
         return replaceScene(fileName);
     }

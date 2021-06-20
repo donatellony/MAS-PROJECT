@@ -75,6 +75,6 @@ public abstract class Worker {
 
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + ", id: " + getWorkerId() + ", worker type: " + getRole() + ", salary: " + getSalary();
+        return getName() + " " + getSurname() + " (" + getWorkerId() + ")";
     }
 }

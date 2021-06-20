@@ -10,6 +10,20 @@ public abstract class Document {
     private VerificationOfDocument verification;
     private Client owner;
 
+    public Document(){
+
+    }
+
+    public Document(byte[] document, Client owner){
+        setDocument(document);
+        setOwner(owner);
+    }
+
+    public Document(byte[] document, Client owner, VerificationOfDocument verification){
+        this(document, owner);
+        setVerification(verification);
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     public long getDocumentId() {
@@ -41,7 +55,6 @@ public abstract class Document {
     }
 
     @Lob
-//    @Column(columnDefinition = "BLOB")
     public byte[] getDocument() {
         return document;
     }

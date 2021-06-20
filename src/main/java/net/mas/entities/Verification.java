@@ -69,4 +69,7 @@ public abstract class Verification {
     public void setVerifier(Verifier verifier) {
         this.verifier = verifier;
     }
+
+    @Transient
+    public abstract String getType();
 }

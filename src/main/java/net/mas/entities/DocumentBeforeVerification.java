@@ -8,6 +8,19 @@ import java.time.LocalDate;
 public class DocumentBeforeVerification extends Document{
     private LocalDate addedToQueueDate;
 
+    public DocumentBeforeVerification(){
+
+    }
+
+    public DocumentBeforeVerification(byte[] document, Client owner){
+        super(document, owner);
+    }
+
+    public DocumentBeforeVerification(byte[] document, Client owner, VerificationOfDocument verification){
+        super(document, owner, verification);
+        setAddedToQueueDate(LocalDate.now());
+    }
+
     @Basic
     public LocalDate getAddedToQueueDate() {
         return addedToQueueDate;

@@ -2,6 +2,7 @@ package net.mas.services;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import net.mas.Main;
 import net.mas.repositories.VerificationRepository;
 
 import java.util.HashMap;
@@ -13,6 +14,14 @@ public class VerificationLoadingService extends Service<Map<VerificationLoadingS
 
     private VerificationLoadingService(){
         instance = this;
+        setOnRunning(event -> Main.getInstance().setLoadingScene());
+        setOnSucceeded(event -> {
+            try {
+                Main.getInstance().replaceScene("workerVerificationsPage.fxml", "Piesikot Moderator Verifications Page");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public static VerificationLoadingService getInstance() {
