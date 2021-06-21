@@ -12,18 +12,17 @@
 
 <AnchorPane prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.mas.controllers.WorkerVerificationsController">
     <children>
-        <BorderPane layoutX="531.0" layoutY="260.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane layoutX="531.0" layoutY="260.0" prefHeight="200.0" prefWidth="200.0" styleClass="globalBgColor" stylesheets="@moderator-worker-styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
                 <TableView fx:id="mainDataTable" prefHeight="559.0" prefWidth="829.0" BorderPane.alignment="CENTER">
                     <columns>
                         <TableColumn fx:id="idCol" prefWidth="32.0" text="ID" />
-                        <TableColumn fx:id="workerCol" prefWidth="120.0" text="Worker" />
-                        <TableColumn fx:id="clientCol" prefWidth="120.0" text="Client" />
-                        <TableColumn fx:id="typeCol" prefWidth="120.0" text="Type" />
-                  <TableColumn fx:id="startDateCol" prefWidth="120.0" text="Start Date" />
-                  <TableColumn fx:id="endDateCol" prefWidth="120.0" text="End Date" />
-                  <TableColumn fx:id="resultCol" prefWidth="120.0" text="Result" />
-                        <TableColumn fx:id="actionsCol" prefWidth="176.0" text="Actions" />
+                        <TableColumn fx:id="workerCol" prefWidth="149.0" text="Worker" />
+                        <TableColumn fx:id="clientCol" prefWidth="149.0" text="Client" />
+                        <TableColumn fx:id="typeCol" prefWidth="149.0" text="Type" />
+                  <TableColumn fx:id="startDateCol" prefWidth="149.0" text="Start Date" />
+                  <TableColumn fx:id="endDateCol" prefWidth="149.0" text="End Date" />
+                  <TableColumn fx:id="resultCol" prefWidth="151.0" text="Result" />
                     </columns>
                     <BorderPane.margin>
                         <Insets bottom="100.0" right="150.0" />
@@ -47,7 +46,7 @@
                                 </Label>
                             </children>
                         </VBox>
-                        <HBox alignment="CENTER" prefHeight="131.0" prefWidth="379.0" styleClass="changeMenuBox" stylesheets="@moderator-worker-styles.css">
+                        <HBox alignment="CENTER" prefHeight="143.0" prefWidth="379.0" styleClass="changeMenuBox" stylesheets="@moderator-worker-styles.css">
                             <children>
                                 <Button fx:id="toWorkersBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="changeMenuButton" stylesheets="@moderator-worker-styles.css" text="Workers">
                                     <font>
@@ -72,6 +71,9 @@
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
+                     <HBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </HBox.margin>
                         </HBox>
                     </children>
                 </HBox>

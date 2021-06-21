@@ -16,7 +16,7 @@ public class WorkerLoadingService extends Service<List<Worker>> {
         setOnRunning(event -> Main.getInstance().setLoadingScene());
         setOnSucceeded(event -> {
             try {
-                Main.getInstance().replaceScene("moderatorPage.fxml", "Piesikot Moderator Workers Page");
+                Main.getInstance().replaceScene("workersPage.fxml", "Piesikot Moderator Workers Page");
             } catch (Exception e) {
                 e.printStackTrace();
             }

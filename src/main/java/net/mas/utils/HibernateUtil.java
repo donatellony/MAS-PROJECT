@@ -38,12 +38,14 @@ public class HibernateUtil {
         Picture pictureOfClient1 = new PictureBeforeVerification(client1pic, client1);
         Picture pictureOfClient2 = new PictureBeforeVerification(client1pic, client2);
         Picture pictureOfClient3 = new PictureBeforeVerification(client1pic, client3);
+        Picture pictureOfClient3n2 = new PictureBeforeVerification(client1pic, client3);
 
         Document document3 = new DocumentBeforeVerification(client3doc, client3);
 
         client1.getPictures().add(pictureOfClient1);
         client2.getPictures().add(pictureOfClient2);
         client3.getPictures().add(pictureOfClient3);
+        client3.getPictures().add(pictureOfClient3n2);
 
         client3.getDocuments().add(document3);
 
@@ -52,13 +54,16 @@ public class HibernateUtil {
         Verifier verifier2 = new Verifier("Van", "Darkholme", 30f, 300);
         Verifier verifier3 = new Verifier("Jana", "Kowalska", 15f, 20);
 
+        VerificationOfPicture picVer3n2 = new VerificationOfPicture(LocalDate.now(), verifier1, pictureOfClient3n2);
         VerificationOfPicture picVer1 = new VerificationOfPicture(LocalDate.now(), verifier1, pictureOfClient1);
-        VerificationOfDocument docVer3 = new VerificationOfDocument(LocalDate.now(), verifier2, document3);
+        VerificationOfDocument docVer3 = new VerificationOfDocument(LocalDate.now(), verifier1, document3);
         VerificationOfPicture picVer3 = new VerificationOfPicture(LocalDate.now(), verifier2, pictureOfClient3);
 
         document3.setVerification(docVer3);
-        verifier2.getVerifications().add(docVer3);
+        verifier1.getVerifications().add(docVer3);
 
+        pictureOfClient3n2.setVerification(picVer3n2);
+        verifier1.getVerifications().add(picVer3n2);
         pictureOfClient3.setVerification(picVer3);
         verifier2.getVerifications().add(picVer3);
         pictureOfClient1.setVerification(picVer1);
@@ -70,6 +75,7 @@ public class HibernateUtil {
         session.save(verifier1);
         session.save(verifier2);
         session.save(picVer1);
+        session.save(picVer3n2);
         session.save(picVer3);
         session.save(docVer3);
         session.save(client3);
@@ -78,6 +84,7 @@ public class HibernateUtil {
         session.save(pictureOfClient1);
         session.save(pictureOfClient2);
         session.save(pictureOfClient3);
+        session.save(pictureOfClient3n2);
 
         System.out.println("SAVED!");
         transaction.commit();

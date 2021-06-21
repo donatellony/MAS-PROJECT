@@ -11,10 +11,13 @@ public class ButtonCellFactory<E> implements Callback<TableColumn<E, ?>, TableCe
     private String label;
     private Consumer<E> onAction;
 
+
+    //used by the WorkerButtonCellFactory
     protected ButtonCellFactory(){
 
     }
 
+    //creates the column of cells with defined action and label
     public ButtonCellFactory(String label, Consumer<E> onAction) {
         this.label = label;
         this.onAction = onAction;

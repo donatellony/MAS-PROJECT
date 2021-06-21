@@ -1,17 +1,60 @@
 .changeMenuBox{
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 100;
+    -fx-background-color: #ffef70;
+    -fx-background-radius: 200;
 }
 
-.changeMenuButton{
+.button{
     -fx-background-color: #e6e6e6;
     -fx-background-radius: 30;
 }
 
-.changeMenuButton:hover{
+.button:hover{
     -fx-opacity: 0.6;
 }
 
 .activeChangeMenuButton{
-    -fx-background-color: #a3a3a3;
+    -fx-background-color: #f0e11a;
 }
+
+.globalBgColor{
+    -fx-background-color: #c5f0d0;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #62a35f;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: green;
+}
+.table-row-cell:odd{
+    -fx-background-color: #93f9b911;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: #1dbbdd11;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #089c02;
+    -fx-text-background-color: white;
+}
+
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}
+
